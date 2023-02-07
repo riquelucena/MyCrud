@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MyCrudStudent.Models.Student>
+
+@{
+    ViewData["Title"] = "MyCrudStudent";
+}
+
+<form asp-controller="Home" asp-action="StudentSearch" method="post">
+    <div>
+        <label for="textField">Pesquisar por matrícula ou nome do aluno:</label>
+        <input type="text" id="textField" name="textField">
+    </div>
+    <button type="submit">Pesquisar</button>
+</form>
+<br />
+
+<table>
+    <thead>
+        <tr>
+            <th>Matrícula</th>
+            <th>Aluno</th>
+            <th>Data de Nascimento</th>
+            <th>Nome do Pai</th>
+            <th>Nome da Mãe</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var student in Model)
+            {
+
+                <tr>
+                    <td>@student.Id</td>
+                    <td>@student.StudentName</td>
+                    <td>@student.BirthDate</td>
+                    <td>@student.FatherName</td>
+                    <td>@student.MotherName</td>
+                    <td>@student.Email</td>
+                </tr>
+            }
+        } 
+    </tbody>
+</table>
