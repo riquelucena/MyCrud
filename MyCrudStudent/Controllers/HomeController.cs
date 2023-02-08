@@ -53,7 +53,7 @@ namespace MyCrudStudent.Controllers
         [HttpPost]
         public IActionResult StudentSearch(string textField)
         {
-            var result = StudentRepository.SearchStudent(textField);
+            var result = SearchStudent.Search(textField);
             return View(result);
         }
 

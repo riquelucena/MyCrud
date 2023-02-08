@@ -13,13 +13,6 @@
             student.Id = ++initialId;
             students.Add(student);
         }
-                      
-        public static IEnumerable<Student> SearchStudent(string textField)
-        {
-            var result = students.Where(s => s.Id.ToString().Contains(textField) || s.StudentName?.Contains(textField) == true);
-            return result;
-        }
-
         public static void DeleteStudent(int id)
         {
             students.RemoveAll(s => s.Id == id);
