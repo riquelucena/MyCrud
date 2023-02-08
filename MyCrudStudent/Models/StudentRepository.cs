@@ -8,6 +8,8 @@
 
         public static void AddStudent(Student student)
         {
+            ValidateStudent.Validate(student);
+
             student.Id = ++initialId;
             students.Add(student);
         }

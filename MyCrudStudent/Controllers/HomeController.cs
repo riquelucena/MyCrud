@@ -21,8 +21,17 @@ namespace MyCrudStudent.Controllers
         [HttpPost]
         public IActionResult StudentRegistry(Student student)
         {
-            StudentRepository.AddStudent(student);
-            return View("RegistrySucessfull", student);
+            try
+            {
+                StudentRepository.AddStudent(student);
+                return View("RegistrySucessfull", student);
+            }
+            catch (Exception ex)
+            {
+                ViewData["Message"] = ex.Message;
+                return View("ErrorPage");
+            }
+            
         }
 
         public IActionResult StudentList()
