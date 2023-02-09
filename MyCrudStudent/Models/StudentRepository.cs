@@ -1,29 +1,29 @@
 ﻿namespace MyCrudStudent.Models
 {
-    public class StudentRepository
+    public class StudentRepository : IStudentRepository
     {
-        public static List<Student> students = new List<Student>();
+        private static IList<Student> students = new List<Student>();
+        private static int lastId = 0;
 
-        private static int initialId = 0;
-
-        public static void AddStudent(Student student)
+        public void Add(Student student)
         {
             ValidateStudent.Validate(student);
 
-            student.Id = ++initialId;
+            student.Id = ++lastId;
             students.Add(student);
         }
-        public static void DeleteStudent(int id)
+        public void Delete(int id)
         {
-            students.RemoveAll(s => s.Id == id);
+            var student = students.Where(x => x.Id == id).FirstOrDefault();
+            if (student is not null)
+                students.Remove(student);
         }
 
-        public static IEnumerable<Student> StudentList
+        public IEnumerable<Student> Search(string? textField = null)
         {
-            get
-            {
-                return students;
-            }
+            if (!string.IsNullOrWhiteSpace(textField))
+                return students.Where(s => s.Id.ToString().Contains(textField) || s.StudentName?.Contains(textField) == true);
+            return students.Select(x => x.Copy()).ToList();
         }
     }
 }

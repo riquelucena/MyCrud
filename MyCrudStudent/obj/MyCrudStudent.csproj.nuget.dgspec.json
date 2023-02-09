@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dev\\Projetos\\MyCrudStudent\\MyCrudStudent\\MyCrudStudent.csproj": {}
+    "C:\\repo\\estudo\\henrique\\MyCrud\\MyCrudStudent\\MyCrudStudent.csproj": {}
   },
   "projects": {
-    "C:\\Dev\\Projetos\\MyCrudStudent\\MyCrudStudent\\MyCrudStudent.csproj": {
+    "C:\\repo\\estudo\\henrique\\MyCrud\\MyCrudStudent\\MyCrudStudent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\Projetos\\MyCrudStudent\\MyCrudStudent\\MyCrudStudent.csproj",
+        "projectUniqueName": "C:\\repo\\estudo\\henrique\\MyCrud\\MyCrudStudent\\MyCrudStudent.csproj",
         "projectName": "MyCrudStudent",
-        "projectPath": "C:\\Dev\\Projetos\\MyCrudStudent\\MyCrudStudent\\MyCrudStudent.csproj",
-        "packagesPath": "C:\\Users\\Skywalker\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\Projetos\\MyCrudStudent\\MyCrudStudent\\obj\\",
+        "projectPath": "C:\\repo\\estudo\\henrique\\MyCrud\\MyCrudStudent\\MyCrudStudent.csproj",
+        "packagesPath": "C:\\Users\\naegr\\.nuget\\packages\\",
+        "outputPath": "C:\\repo\\estudo\\henrique\\MyCrud\\MyCrudStudent\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Skywalker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\naegr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -87,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

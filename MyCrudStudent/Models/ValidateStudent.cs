@@ -26,7 +26,7 @@
 
             try
             {
-                var addr = new System.Net.Mail.MailAddress(student.Email);
+                var addr = new System.Net.Mail.MailAddress(student.Email ?? "");
             }
             catch
             {

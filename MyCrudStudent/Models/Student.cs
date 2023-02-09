@@ -15,5 +15,15 @@ namespace MyCrudStudent.Models
         public string? MotherName { get; set; }
 
         public string? Email { get; set; }
+
+        public Student Copy() {
+            var copy = new Student();
+            copy.Id = this.Id;
+            copy.StudentName = this.StudentName;
+            copy.FatherName = this.FatherName;
+            copy.MotherName = this.MotherName;
+            copy.Email = this.Email;
+            return copy;
+        }
     }
 }
