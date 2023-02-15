@@ -8,7 +8,7 @@ namespace MyCrudStudent.Models
 
         public string? StudentName { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public string? FatherName { get; set; }
 
@@ -20,6 +20,7 @@ namespace MyCrudStudent.Models
             var copy = new Student();
             copy.Id = this.Id;
             copy.StudentName = this.StudentName;
+            copy.BirthDate = this.BirthDate ?? DateTime.MinValue;
             copy.FatherName = this.FatherName;
             copy.MotherName = this.MotherName;
             copy.Email = this.Email;

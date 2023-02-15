@@ -3,6 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMyCrudDependencies();
+builder.Services.AddMvc();
 
 var app = builder.Build();
 
@@ -26,3 +27,13 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=StudentRegistry}/{id?}");
 
 app.Run();
+
+CreateScope(app);
+
+static void CreateScope(WebApplication app)
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        scope.ServiceProvider.GetRequiredService<IDataService>().initializeDB();
+    }
+}

@@ -9,7 +9,7 @@
                 throw new ArgumentException("O nome do aluno é obrigatório.");
             }
 
-            if (student.BirthDate >= DateTime.Now)
+            if (student.BirthDate == null || student.BirthDate >= DateTime.Now)
             {
                 throw new ArgumentException("A data de nascimento do aluno não pode ser igual ou maior que a data atual.");
             }

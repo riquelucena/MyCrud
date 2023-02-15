@@ -1,29 +1,52 @@
-﻿namespace MyCrudStudent.Models
+﻿using MyCrudStudent.ApplicationContext;
+
+namespace MyCrudStudent.Models
 {
     public class StudentRepository : IStudentRepository
     {
-        private static IList<Student> students = new List<Student>();
-        private static int lastId = 0;
+        private readonly DataContext context;
+
+        public StudentRepository(DataContext context)
+        {
+            this.context = context;
+        }
 
         public void Add(Student student)
         {
             ValidateStudent.Validate(student);
 
-            student.Id = ++lastId;
-            students.Add(student);
+            context.Set<Student>().Add(student);
+            context.SaveChanges();
         }
         public void Delete(int id)
         {
-            var student = students.Where(x => x.Id == id).FirstOrDefault();
+            var student = context.Set<Student>().FirstOrDefault(s => s.Id == id);
             if (student is not null)
-                students.Remove(student);
+            {
+                context.Set<Student>().Remove(student);
+                context.SaveChanges();
+            }
         }
 
         public IEnumerable<Student> Search(string? textField = null)
         {
+            var students = context.Set<Student>().AsQueryable();
             if (!string.IsNullOrWhiteSpace(textField))
-                return students.Where(s => s.Id.ToString().Contains(textField) || s.StudentName?.Contains(textField) == true);
-            return students.Select(x => x.Copy()).ToList();
+            {
+                students = students.Where(s => s.Id.ToString().Contains(textField) || s.StudentName.Contains(textField) == true);
+            }
+            return students.Select(s => s.Copy()).ToList();
         }
+
+        public void AddDataBase(List<Student> students)
+        {
+            foreach (var student in students)
+            {
+                context.Set<Student>().Add(student);
+            }
+            context.SaveChanges();
+        }
+
+
     }
 }

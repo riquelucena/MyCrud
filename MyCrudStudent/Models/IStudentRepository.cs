@@ -5,5 +5,6 @@ namespace MyCrudStudent.Models
     void Add(Student student);
     void Delete(int id);
     IEnumerable<Student> Search(string? textField = null);
+    void AddDataBase(List<Student> students);
   }
 }

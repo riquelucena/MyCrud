@@ -27,13 +27,12 @@
     <tbody>
         @if (Model != null)
         {
-            foreach (var student in Model)
+            foreach (var student in Model)                
             {
-
                 <tr>
                     <td>@student.Id</td>
                     <td>@student.StudentName</td>
-                    <td>@String.Format("{0:dd/MM/yyyy}", student.BirthDate)</td>
+                    <td>@(student.BirthDate.HasValue ? student.BirthDate.Value.ToString("dd/MM/yyyy") : "N/A")</td>
                     <td>@student.FatherName</td>
                     <td>@student.MotherName</td>
                     <td>@student.Email</td>

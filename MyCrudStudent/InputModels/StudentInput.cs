@@ -9,7 +9,7 @@ namespace MyCrudStudent.InputModels
 
         public string? StudentName { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public string? FatherName { get; set; }
 
@@ -21,7 +21,7 @@ namespace MyCrudStudent.InputModels
             var model = new Student();
             model.Id = this.Id;
             model.StudentName = this.StudentName;
-            model.BirthDate = this.BirthDate;
+            model.BirthDate = this.BirthDate ?? DateTime.MinValue;
             model.FatherName = this.FatherName;
             model.MotherName = this.MotherName;
             model.Email = this.Email;
